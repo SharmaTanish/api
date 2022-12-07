@@ -1,0 +1,42 @@
+<!-- This frontend folder can be anywhere not necessary inside "api" since hane api hit karne hai bas iss mai jo localhost hai kahi se bhi access ho jaega!! -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>This is an API</p>
+    <button onclick="getData()" >Button</button>
+
+
+    <script>
+        const getData = () =>{
+            // alert("Hi!");
+        
+            const apiurl = "http://localhost:3000/";//port where server is running!!
+            //since here written just '/' not '/data' or something therefore get response of server.get("/") only!
+            //if want want to send qery parameter to backend the spend that query parameter in apiurl only!!
+            fetch(apiurl)
+            .then((res) =>{
+                return res.json();
+            })
+            .then((data)=>{
+                console.log(data);
+            })
+            
+
+
+        }
+    </script>
+</body>
+</html>
+
+
+<!--
+Notes:-
+-> server on rakho and this frontend ko alag se run karo!!
+and fetch() will automatically get data from server(backend)!
+-->
