@@ -1,7 +1,9 @@
 const express = require("express");
 const server = express();
 const cors = require("cors");
-const {getAllStudents,getAllStudentsOld,createStudents,updateStudents,deleteStudents}=require("./src/controllers");
+const {getAllStudents,getAllStudentsOld,createStudents,updateStudents,deleteStudents,validateLogin,validateSignup}=require("./src/controllers/controllers");
+const {register,signin} = require("./src/controllers/users");
+
 const parser = require("body-parser");
 const mongoose = require("mongoose");
 
@@ -40,6 +42,11 @@ server.get("/students",getAllStudents);
 server.post("/create-new-students",createStudents);
 server.put("/update-students",updateStudents); //if use other than put then get error!
 server.delete("/delete-students",deleteStudents);
+server.post("/login",validateLogin);
+server.post("/signup",validateSignup);
+
+server.post("/register",register);
+server.post("/signin",signin);
 
 //.post() means server is handling post request!
 
